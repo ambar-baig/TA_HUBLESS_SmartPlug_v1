@@ -1,0 +1,27 @@
+===========================================
+Scheduler
+All days
+Minimum one day compulsory
+Create Scheduler, Delete Scheduler, No Update No Readable, 
+User cannot enable or disable scheduler
+
+APP PUBLISH ON  => HUBLESS/REQ/DEVICE_ID
+APP SUBCRIBE ON => HUBLESS/ACK/DEVICE_ID
+APP PUBLISH ON  => HUBLESS/SUM/DEVICE_ID
+
+
+REQUEST  => {"DeviceID":n,"Scheduler":{"SchedulerID":n, "StartHour":n, "StartMinute":n, "StopHour":n, "StopMinute":n, "Day":"SMTWTFS", "Action":n,"Repeat":0/1}}
+RESPONSE => {"DeviceID":n,"Scheduler":1/0}
+REQUEST  => {"DeviceID":n,"Timer":{"TimerID":n, "StartHour":n, "StartMinute":n, "StopHour":n, "StopMinute":n, "Action":n, "Repeat":0/1}}
+RESPONSE => {"DeviceID":n,"Timer":1/0}
+REQUEST  => {"DeviceID":n,"Switch":n, "State":0/1}
+RESPONSE => {"DeviceID":n,"Switch":n, "State":0/1}
+PUBSUM   => {"DeviceID":n,"Switches":[{"Switch":n, "State":n, }], "Sensors":[{"Sensor":n, "Value":n, }], }
+
+
+* For Deleting Timer/Scheduler, Send -1 in all paramters
+
+** New Changes
+RESPONSE => {"DeviceID":n,"TimerSet":1/0, "TimerID":n}
+RESPONSE => {"DeviceID":n,"SchedulerSet":1/0, "SchedulerID":n}
+
